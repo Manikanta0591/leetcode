@@ -1,22 +1,15 @@
+import math
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
-        p=[0]*len(nums)
-        a=1
-        for i in range(len(nums)):
-            p[i]=a
-            a*=nums[i]
-        s=[0]*len(nums)
-        b=1
-        for i in range(len(nums)-1,-1,-1):
-            s[i]=b
-            b*=nums[i]
-        r=[0]*len(nums)
-        for i in range(len(nums)):
-            r[i]=s[i]*p[i]
-        return r
-
-
-
+        if 0 in nums:
+            result=[0]*len(nums)
+            if nums.count(0)==1:
+                zero_index=nums.index(0)
+                nums.remove(0)
+                result[zero_index]=math.prod(nums)
+            return result
+        product=math.prod(nums)
+        return [product//i for i in nums]
 
 # Synced seamlessly with LeetHub Pro
 # Pro features: https://bit.ly/leethubpro | Free version: https://bit.ly/leethubv4
