@@ -18,7 +18,6 @@ class Solution:
                     continue
                 while c<d:
                     if nums[a]+nums[b]+nums[c]+nums[d]==target:
-                        print(a,b,c,d)
                         ans.append([nums[a],nums[b],nums[c],nums[d]])
                         while c<d and nums[c]==nums[c+1]:
                             c+=1
